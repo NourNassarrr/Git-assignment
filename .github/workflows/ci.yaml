@@ -1,1 +1,23 @@
+name: Simple Workflow
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello_world:
+    name: Hello World Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "hello world"
+
+  welcome:
+    name: Welcome Job
+    needs: hello_world
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Welcome
+        run: echo "welcome to nu"
